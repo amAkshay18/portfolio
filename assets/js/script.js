@@ -167,15 +167,34 @@ function validate(){
   var name = document.getElementById("name").value.trim();
   var email = document.getElementById("email").value.trim();
   var message = document.getElementById("message").value.trim();
-  // var submitButton = 
+  var phone = document.getElementById("phone").value.trim();
+  phone = phone.replace(/[^0-9]/g, '');
+  document.getElementById("phone").value=phone;
 
-  if(email === "" || name === "" || message === ""){
-    document.getElementById("submit").disabled = true
-    document.getElementById("submit").style.backgroundColor = "gray";
-    alert("Entry fields cannot be empty")
-  }else{
-    document.getElementById("submit").disabled = false
-  }
+
+  // var submitButton = 
+if (!/^[a-zA-Z]+$/.test(name)) {
+  document.getElementById("submit").disabled = true
+  document.getElementById("name").value='';
+  alert("username must be characters")
+}else{
+  document.getElementById("submit").disabled = false
+}
+
+if (phone==='') {
+  document.getElementById("submit").disabled = true
+  alert("phone number must be numbers")
+}else{
+  document.getElementById("submit").disabled = false
+}
+
+if(email === "" || name === "" || message === ""){
+  document.getElementById("submit").disabled = true
+  document.getElementById("submit").style.backgroundColor = "gray";
+  alert("Entry fields cannot be empty")
+}else{
+  document.getElementById("submit").disabled = false
+}
 }
 
 // validate();
