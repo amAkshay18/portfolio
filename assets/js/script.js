@@ -181,12 +181,19 @@ if (!/^[a-zA-Z]+$/.test(name)) {
   document.getElementById("submit").disabled = false
 }
 
-if (phone==='') {
+if (phone==='' || phone.length!==10) {
   document.getElementById("submit").disabled = true
-  alert("phone number must be numbers")
+  alert("enter a valid phone number")
 }else{
   document.getElementById("submit").disabled = false
 }
+if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+  document.getElementById("submit").disabled = true
+  alert("enter a valid email-id")
+}else{
+  document.getElementById("submit").disabled = false
+}
+
 
 if(email === "" || name === "" || message === ""){
   document.getElementById("submit").disabled = true
